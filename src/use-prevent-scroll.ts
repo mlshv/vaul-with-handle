@@ -199,7 +199,7 @@ function preventScrollMobileSafari({ skipTouchEndHandling }: { skipTouchEndHandl
     let target = e.target as HTMLElement;
 
     // Apply this change if we're not already focused on the target element
-    if (isInput(target) && target !== document.activeElement) {
+    if (isInput(target) && document.activeElement.contains(target)) {
       e.preventDefault();
 
       // Apply a transform to trick Safari into thinking the input is at the top of the page
